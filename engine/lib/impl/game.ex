@@ -17,7 +17,9 @@ defmodule Engine.Impl.Game do
 
   @spec new_game :: t
   def new_game do
-    new_game(Dictionary.random_word())
+    Dicrionary.start()
+    |> Dictionary.random_word()
+    |> new_game()
   end
 
   @spec new_game(String.t()) :: t

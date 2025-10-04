@@ -7,7 +7,7 @@ defmodule Engine do
 
   @spec new_game() :: game
   def new_game do
-    {:ok, pid} = Server.start_link()
+    {:ok, pid} = Engine.Runtime.Application.start_game()
     pid
   end
 

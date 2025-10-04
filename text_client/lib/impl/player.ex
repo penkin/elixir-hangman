@@ -3,9 +3,8 @@ defmodule TextClient.Impl.Player do
   @typep tally :: Engine.tally(game)
   @typep state :: {game, tally}
 
-  @spec start() :: :ok
-  def start() do
-    game = Engine.new_game()
+  @spec start(game) :: :ok
+  def start(game) do
     tally = Engine.tally(game)
     interact({game, tally})
   end
@@ -23,8 +22,8 @@ defmodule TextClient.Impl.Player do
     IO.puts(feedback_for(tally))
     IO.puts(display_tally(tally))
 
-    Engine.make_move(game, get_guess())
-    |> interact()
+    tally = Engine.make_move(game, get_guess())
+    interact({game, tally})
   end
 
   defp feedback_for(tally = %{game_state: :initialising}),

@@ -10,9 +10,11 @@
       </h1>
       <Layouts.theme_toggle />
     </div>
-
-    <p class="text-[2rem] mt-4 font-semibold leading-10 tracking-tighter text-balance">
+    <p class="text-[2rem] mt-4 mb-4 font-semibold leading-10 tracking-tighter text-balance">
       Welcome to HTML Hangman
     </p>
+    <.form for={%{}} action={~p"/hangman"} method="post">
+      <.button type="submit" variant="primary">New game</.button>
+    </.form>
   </div>
 </div>
